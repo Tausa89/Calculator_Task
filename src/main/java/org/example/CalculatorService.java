@@ -1,5 +1,6 @@
 package org.example;
 
+import org.example.exceptions.CalculatorServiceException;
 import org.example.operations.ApplyOperation;
 import org.example.operations.IOperation;
 
@@ -19,7 +20,8 @@ public class CalculatorService {
     }
     private static void validateOperations(List<IOperation> operations) {
         var applyOperations = operations.stream().filter(x -> x.getClass().equals(ApplyOperation.class)).toList();
-        if ((long) applyOperations.size() != 1){throw new RuntimeException("Wrong number of operations - must be 1");}
+        if ((long) applyOperations.size() != 1){
+            throw new CalculatorServiceException("Wrong number of operations - must be 1");}
     }
     private static double getInitialValue(List<IOperation> operations) {
 

@@ -1,5 +1,6 @@
 package org.example;
 
+import org.example.exceptions.OperationsReaderException;
 import org.example.operations.IOperation;
 import org.example.operations.OperationFactory;
 
@@ -10,7 +11,7 @@ import java.util.List;
 import java.util.Scanner;
 
 public class OperationsReader {
-    static List<IOperation> getOperationsFromFile(File fileName) {
+    static List<IOperation> getOperationsFromFile(File fileName)  {
         List<IOperation> operations = new ArrayList<>();
 
         try {
@@ -24,8 +25,7 @@ public class OperationsReader {
 
         } catch (
                 FileNotFoundException e) {
-            System.out.println("File not found!");
-            e.printStackTrace();
+            throw new OperationsReaderException("File not found");
         }
         return operations;
     }

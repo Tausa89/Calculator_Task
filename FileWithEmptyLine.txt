@@ -1,0 +1,7 @@
+add 5
+subtract 10
+multiply 4
+divide 10
+multiply 2
+
+apply 20

@@ -8,7 +8,7 @@ public class Main {
     public static void main(String[] args) {
 
 
-        File file = new File("Task.txt");
+        File file = new File(args[0]);
         var operations = OperationsReader.getOperationsFromFile(file);
         var result = CalculatorService.calculate(operations);
         System.out.printf("Result = %s".formatted(result));

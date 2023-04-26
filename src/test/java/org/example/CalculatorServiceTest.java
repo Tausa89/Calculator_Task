@@ -1,15 +1,16 @@
 package org.example;
 
 import org.example.exceptions.CalculatorServiceException;
+import org.example.exceptions.FactoryException;
 import org.example.operations.*;
+import org.example.service.CalculatorService;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-
-import java.util.ArrayList;
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 class CalculatorServiceTest {
 
@@ -70,13 +71,23 @@ class CalculatorServiceTest {
     @Test
     @DisplayName("when more than one Apply Operation")
     void testSeven() {
-        List<IOperation> operations = List.of(new SubtractOperation(10));
+        List<IOperation> operations = List.of(new SubtractOperation(10),new ApplyOperation(100),new ApplyOperation(50));
         assertThrows(CalculatorServiceException.class, () ->
                 {
                     CalculatorService.calculate(operations);
                 }
 
         );
+    }
+
+    @Test
+    @DisplayName("when 0 is provided for divine operation")
+    void testEight(){
+        List<IOperation> operations = List.of(new ApplyOperation(100), new DivideOperation(0));
+        assertThrows(FactoryException.class, () ->
+        {
+            CalculatorService.calculate(operations);
+        },"You can't divide by 0");
     }
 
 

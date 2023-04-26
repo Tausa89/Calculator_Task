@@ -1,14 +1,11 @@
-package org.example;
+package org.example.service;
 
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
 import org.example.exceptions.CalculatorServiceException;
 import org.example.operations.ApplyOperation;
 import org.example.operations.IOperation;
 
 import java.util.List;
-@AllArgsConstructor
-@NoArgsConstructor
+
 public class CalculatorService {
 
     public static double calculate (List<IOperation> operations){

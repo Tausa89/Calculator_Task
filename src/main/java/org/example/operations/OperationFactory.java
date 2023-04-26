@@ -1,12 +1,7 @@
 package org.example.operations;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
 import org.example.exceptions.FactoryException;
-import org.example.exceptions.OperationsReaderException;
-@NoArgsConstructor
-@AllArgsConstructor
+
 public class OperationFactory {
 
     public static IOperation buildOperation (String line){

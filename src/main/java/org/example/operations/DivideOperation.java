@@ -1,6 +1,7 @@
 package org.example.operations;
 
 import lombok.Data;
+import org.example.exceptions.FactoryException;
 
 @Data
 public class DivideOperation implements IOperation{
@@ -13,6 +14,9 @@ public class DivideOperation implements IOperation{
 
     @Override
     public double calculate(double leftValue) {
+        if(value == 0){
+            throw new FactoryException("You can't divide by 0");
+        }
         return leftValue / value;
     }
 

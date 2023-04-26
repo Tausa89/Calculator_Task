@@ -30,4 +30,5 @@ so there can be no empty lines, the space between the operation name and the num
 Code can be pulled from the repository, then Jar should be created, class Main should be selected to run in Jar. Then application can be run from console.
 In the console, we need to go to the Jar file folder and run it adding as a parameter an absolute path to the file where operations are stored
 For example java -jar Jar_File_Name.jar C:\MyName\Desktop\CalculatorTask\Calculator_Task_File.txt
-We should see the result of all operations in the console or error if there was something not according to instructions
+We should see the result of all operations in the console or error if there was something not according to instructions.
+As an alternative, there is a file prepared with the name Task.txt. In class Main we can replace args[0] in new File(args[0]) for "Task.txt" Then there is no need to generate a Jar and application can be run direct from development environment. 
